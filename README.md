@@ -8,7 +8,7 @@ Coney is a complete toolkit for CONversational survEYs offering components to de
 
 Coney is an innovative toolkit designed to enhance the user experience in surveys completion. Coney exploits a conversational approach: on the one hand, Coney allows modelling a conversational survey with an intuitive graphical editor; on the other hand, it allows publishing and administering surveys through a chat interface. Coney allows defining an arbitrary acyclic graph of interaction flows, in which the following question depends on the previous answer provided by the user. This offers a high degree of flexibility to survey designers that can simulate a human to human interaction, with a storytelling approach that enables different personalized paths. Coney’s interaction mechanism exploits the advantages of qualitative methods while performing quantitative research, by linking questions to the investigated variables and encoding answers. A preliminary evaluation of the approach shows that users prefer conversational surveys to traditional ones.
 
-Try Coney at [bit.ly/try-coney](bit.ly/try-coney)!
+Try Coney at [bit.ly/try-coney](https://bit.ly/try-coney)!
 
 ### Project Updates
 
