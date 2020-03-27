@@ -65,9 +65,9 @@ sh coney.sh build
 sh coney.sh up
 ```
 
-To deploy Coney in a different environment the following actions are required. 
+To deploy Coney in a different environment the following actions are required to configure the deployment.  
 
-_Basic deployment config_:
+_Basic deployment_:
 - Edit the `nginx.conf` file to configure the reverse-proxy. In particular update the `server_name`. 
 - Set the `BASE_HREF` for Angular using the related env variable when launching the build with docker-compose.
 	```
@@ -76,6 +76,10 @@ _Basic deployment config_:
 	```
 - Change the file `environment.ts` to set the `baseUrl` that should used by Coney components to reach the back-end (coney-api).
 - Change the file `environment.ts` to set the `privacyUrl` shown to users compiling surveys through the coney-chat component.
+- Launch the build using the `--env-cp` option
+	```
+	sh coney.sh build --env-cp
+	```
 
 _Notes_:
 - Unpublished surveys and `coney-api` logs are saved in the `coney-data` folder in the host filesystem. The content of the `coney-data` folder is added to the `.gitignore` file by default.
@@ -88,18 +92,18 @@ A default coney-demo survey is provided. `TODO` create a script to automatically
 ### The Project
 
 To know more in details the project you can access related pubblications:
-	- _CHItaly 2019_: Extended abstract and poster "CONEY: A CONversational survEY Toolkit" on [Zenodo](https://doi.org/10.5281/zenodo.3446014)
-	- _IJHCS 2020_: Journal paper "Submitting surveys via a conversational interface: An evaluation of user acceptance and approach effectiveness" on [Arxiv](https://arxiv.org/pdf/2003.02537.pdf) 
+- _CHItaly 2019_: Extended abstract and poster "CONEY: A CONversational survEY Toolkit" on [Zenodo](https://doi.org/10.5281/zenodo.3446014)
+- _IJHCS 2020_: Journal paper "Submitting surveys via a conversational interface: An evaluation of user acceptance and approach effectiveness" on [Arxiv](https://arxiv.org/pdf/2003.02537.pdf) 
 
 Coney has been developed by [Cefriel](https://www.cefriel.com/). If you have more questions or feedback don’t hesitate to contact the Coney Team at [coney@cefriel.com](mailto:coney@cefriel.com).
 
 ### Coney Enterprise Edition
 
 The Coney Enterprise Edition is mainly based on the open source components, but offers additional features:
-	- Multi-user and Multi-project features to support hierarchies and access levels for surveys
-	- Centralized console to access Coney components
-	- Link personalization for survey delivery (users, metadata, limit to number completions)
-	- API authentication
+- Multi-user and Multi-project features to support hierarchies and access levels for surveys
+- Centralized console to access Coney components
+- Link personalization for survey delivery (users, metadata, limit to number completions)
+- API authentication
 	
 If you are interested, or if you simply want to know more, send us an email at [coney@cefriel.com](mailto:coney@cefriel.com).
 
