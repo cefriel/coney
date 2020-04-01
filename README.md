@@ -17,7 +17,6 @@ You can try Coney at [bit.ly/try-coney](https://bit.ly/try-coney)!
 To clone the repository and all submodules you should run the following command:
 ```
 git clone --recurse-submodules https://github.com/cefriel/coney.git
-
 ```
 ### Components
 Landing page at `localhost/coney`. All components are masked by a reverse-proxy.
