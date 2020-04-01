@@ -5,7 +5,6 @@ services:
       build: 
         context: ./coney-api/
       restart: on-failure
-      # DONE URL coney-neo4j modified through ENV in Dockerfile
       volumes:
         - ./coney-data/:/opt/coney-data/
       networks:
@@ -23,7 +22,6 @@ services:
         - coney-net
       depends_on: 
         - coney-api
-    # DONE URL coney-api modified through --configuration=docker in ng build
     coney-chat:
       image: coney/coney-chat
       build: 
@@ -35,7 +33,6 @@ services:
         - coney-net
       depends_on: 
         - coney-api
-    # DONE URL coney-api modified through --configuration=docker in ng build
     coney-inspect:
       image: coney/coney-inspect
       build: 
@@ -47,7 +44,6 @@ services:
         - coney-net
       depends_on: 
         - coney-api
-    # DONE URL coney-api modified through --configuration=docker in ng build
     coney-neo4j: 
       image: neo4j:3.5.15
       # Remove comments to reach Neo4j GUI from localhost
@@ -67,7 +63,7 @@ services:
         NEO4J_AUTH: "neo4j/coney"
     coney-demo:
      image: alpine:3
-    Executes a query to initialize the survey coney-demo when Neo4j is running, then stop.
+     # Executes a query to initialize the survey coney-demo when Neo4j is running, then stop.
      command: sh -c "chmod +x /query.sh && /query.sh"
      restart: on-failure
      volumes: 
