@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Coney</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div id="body" style="height: 100vh; display: flex; flex-direction: column; justify-content: center; background: whitesmoke;">
+        
+        <div id="bodyTop" class="pb-5">
+            
+            <div class="row m-0 p-5">
+
+                <div id="show-on-desktop" class="col-xs-12 col-sm-7 col-lg-7 p-3 justify-content-center text-center">
+                    <h1 style="text-align: center; margin-top: 15%; color: #3d3d3d; font-weight: 300;">
+                        <img style="height: 70px; padding-bottom: 10px;" src="assets/coney.svg">
+                        Coney
+                    </h1>
+                </div>
+
+                <div class="col-xs-12 col-sm-5 col-lg-5" style="position: relative;display: inline-block;overflow: hidden; margin: 0;">
+                    <img id="suite" style="max-width: 500px;" src="assets/suite.png">
+                </div>
+
+                <div id="hide-on-desktop" class="col-xs-12 col-sm-7 col-lg-7 p-3 justify-content-center text-center">
+                    <h1 class="py-4" style="text-align: center; color: #3d3d3d;">
+                        <img style="height: 48px; padding-bottom: 10px;" src="assets/coney.svg">
+                        Coney
+                    </h1>
+                </div>
+
+            </div>
+
+            <hr style="width: 70%;" class="p-5" id="show-on-desktop">
+
+            <div class="row m-0 px-4 justify-content-around">
+
+                <div class="card m-1 p-2 col-xs-12 col-sm-4 col-lg-4">
+
+                    <div class="row mx-0">
+
+                        <img height="60px" src="assets/create.png">
+                        <h5 class="p-3">
+                            <a href="http://localhost:80/coney/create" style="color: #3d3d3d!important">
+                                Create
+                            </a>
+                        </h5>
+
+                        <a style="position: absolute; bottom: 1rem; right: 1rem;" href="http://localhost:80/coney/create"
+                            target="_blank">
+                            <img height="16px" src="assets/external.svg">
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="card m-1 p-2 col-xs-12 col-sm-4 col-lg-4">
+
+                    <div class="row mx-0">
+
+                        <img height="60px" src="assets/pie.png">
+                        <h5 class="p-3">
+                            <a href="http://localhost:80/coney/inspect" style="color: #3d3d3d!important">
+                                Inspect
+                            </a>
+                        </h5>
+                        <a style="position: absolute; bottom: 1rem; right: 1rem;" href="http://localhost:80/coney/inspect"
+                            target="_blank">
+                            <img height="16px" src="assets/external.svg">
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

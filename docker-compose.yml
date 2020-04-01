@@ -1,0 +1,95 @@
+version: '3'
+services:
+    coney-api:
+      image: coney/coney-api
+      build: 
+        context: ./coney-api/
+      restart: on-failure
+      # DONE URL coney-neo4j modified through ENV in Dockerfile
+      volumes:
+        - ./coney-data/:/opt/coney-data/
+      networks:
+        - coney-net
+      depends_on: 
+        - coney-neo4j
+    coney-create:
+      image: coney/coney-create
+      build: 
+        context: ./coney-create/
+        args:
+          - BASE_HREF=${BASE_HREF:-/coney}/create/
+      restart: on-failure
+      networks:
+        - coney-net
+      depends_on: 
+        - coney-api
+    # DONE URL coney-api modified through --configuration=docker in ng build
+    coney-chat:
+      image: coney/coney-chat
+      build: 
+        context: ./coney-chat/
+        args:
+          - BASE_HREF=${BASE_HREF:-/coney}/chat/
+      restart: on-failure
+      networks:
+        - coney-net
+      depends_on: 
+        - coney-api
+    # DONE URL coney-api modified through --configuration=docker in ng build
+    coney-inspect:
+      image: coney/coney-inspect
+      build: 
+        context: ./coney-inspect/
+        args:
+          - BASE_HREF=${BASE_HREF:-/coney}/inspect/
+      restart: on-failure
+      networks:
+        - coney-net
+      depends_on: 
+        - coney-api
+    # DONE URL coney-api modified through --configuration=docker in ng build
+    coney-neo4j: 
+      image: neo4j:3.5.15
+      # Remove comments to reach Neo4j GUI from localhost
+      ports:
+      # HOST_PORT:CONTAINER_PORT
+        - "127.0.0.1:7474:7474"
+        - "127.0.0.1:7687:7687"
+      restart: on-failure
+      volumes: 
+        - ${NEO4J_FOLDER:-./}neo4j/data:/data
+        - ${NEO4J_FOLDER:-./}neo4j/logs:/logs
+        - ${NEO4J_FOLDER:-./}neo4j/import:/var/lib/neo4j/import
+        - ${NEO4J_FOLDER:-./}neo4j/plugins:/plugins
+      networks:
+        - coney-net      
+      environment:
+        NEO4J_AUTH: "neo4j/coney"
+    coney-demo:
+     image: alpine:3
+    Executes a query to initialize the survey coney-demo when Neo4j is running, then stop.
+     command: sh -c "chmod +x /query.sh && /query.sh"
+     restart: on-failure
+     volumes: 
+       - ./query.sh:/query.sh
+     networks:
+      - coney-net
+     depends_on: 
+       - coney-neo4j
+    coney-reverse:
+      image: nginx:1.16.0-alpine
+      # Unique access point to all components
+      ports:
+        - 80:80
+      volumes:
+        - ./nginx.conf:/etc/nginx/nginx.conf:ro
+        - ./coney-home/:/usr/share/nginx/html/static/
+      networks:
+        - coney-net
+      depends_on: 
+        - coney-api
+        - coney-inspect
+        - coney-create
+networks:
+  coney-net:
+    driver: bridge

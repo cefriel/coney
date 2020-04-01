@@ -1,0 +1,12 @@
+[submodule "coney-api"]
+	path = coney-api
+	url = https://github.com/cefriel/coney-api.git
+[submodule "coney-inspect"]
+	path = coney-inspect
+	url = https://github.com/cefriel/coney-inspect.git
+[submodule "coney-chat"]
+	path = coney-chat
+	url = https://github.com/cefriel/coney-chat.git
+[submodule "coney-create"]
+	path = coney-create
+	url = https://github.com/cefriel/coney-create.git

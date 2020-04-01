@@ -1,0 +1,34 @@
+#hide-on-desktop{
+    display: none;
+}
+
+.card{
+    height: 95%;
+}
+
+.full-height{
+    height: 100%;
+}
+.half-height{
+    height: 50%;
+}
+
+h5 {
+    font-weight: bold;
+}
+#suite{
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    #hide-on-desktop{
+        display: block!important;
+    }
+    #show-on-desktop{
+        display: none!important;
+    }
+    #suite{
+        margin-top: 20px;
+    }
+  }
