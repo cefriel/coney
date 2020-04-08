@@ -37,7 +37,7 @@ The repository contains a docker-compose file to build and deploy the entire pro
 A utility script is added to the repository to handle common commands. Check line endings before running it on Windows.
 
 ```
-$ ./coney.sh help
+$ sh coney.sh help
 
 Usage: <command> [image] [options]
 
@@ -58,7 +58,7 @@ Options:
 
 ### Deployment
 
-The provided docker-compose file is configured to launch a local instance of Coney. We assume [Docker](https://docs.docker.com/get-docker/) is up and running on your machine. Then execute the following commands to launch Coney:
+The provided docker-compose file is configured to launch a local instance of Coney. We assume [Docker](https://docs.docker.com/get-docker/) is up and running on your machine. Then execute the following commands to launch Coney (depending on your operating system you may need to run the commands using `sudo` to reach the Docker Daemon):
 
 ```
 sh coney.sh build
