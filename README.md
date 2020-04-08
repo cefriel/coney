@@ -34,7 +34,7 @@ More information on the components and how to use them are available in the repo
 
 The repository contains a docker-compose file to build and deploy the entire project. Each submodule contains its own Dockerfile to build the related Docker image.
 
-A utility script is added to the repository to handle common commands.
+A utility script is added to the repository to handle common commands. Check line endings before running it on Windows.
 
 ```
 $ ./coney.sh help
@@ -58,7 +58,8 @@ Options:
 
 ### Deployment
 
-The provided docker-compose file is configured to launch a local instance of Coney. 
+The provided docker-compose file is configured to launch a local instance of Coney. We assume [Docker](https://docs.docker.com/get-docker/) is up and running on your machine. Then execute the following commands to launch Coney:
+
 ```
 sh coney.sh build
 sh coney.sh up
