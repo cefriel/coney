@@ -18,17 +18,6 @@ To clone the repository and all submodules you should run the following command:
 ```
 git clone --recurse-submodules https://github.com/cefriel/coney.git
 ```
-### Components
-Landing page at `localhost/coney`. All components are masked by a reverse-proxy.
-
-Components are reachable at the following addresses:
-- coney-create `localhost/coney/create`
-- coney-inspect `localhost/coney/inspect`
-- coney-chat `localhost/chat` (a valid payload is needed to correctly visualize the chat component)
-
-The backend API can be reached at `localhost/coney-api/<method_name>`. If enabled at build time, the API documentation is available at `localhost/coney-api/swagger-ui.html`.
-
-More information on the components and how to use them are available in the repository Wiki.
 
 ### Toolkit Usage
 
@@ -89,7 +78,19 @@ A default coney-demo survey is provided. `TODO` create a script to automatically
 - Pay attention to line endings when modifying the `query.sh`, they should be UNIX style.
 - Data of Neo4j are persisted in a `neo4j/` folder in the host filesystem. The `neo4j/` folder is added to the `.gitignore` file.
 
-### The Project
+### Components
+Once running, the landing page is available at `localhost/coney`. All components are masked by a reverse-proxy.
+
+Components are reachable at the following addresses:
+- coney-create `localhost/coney/create`
+- coney-inspect `localhost/coney/inspect`
+- coney-chat `localhost/chat` (a valid payload is needed to correctly visualize the chat component)
+
+The backend API can be reached at `localhost/coney-api/<method_name>`. If enabled at build time, the API documentation is available at `localhost/coney-api/swagger-ui.html`.
+
+More information on the components and how to use them are available in the repository Wiki.
+
+### Publications
 
 To know more in details the project you can access related pubblications:
 - _CHItaly 2019_: Extended abstract and poster "CONEY: A CONversational survEY Toolkit" on [Zenodo](https://doi.org/10.5281/zenodo.3446014)
