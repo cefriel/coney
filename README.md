@@ -126,5 +126,5 @@ limitations under the License.
 
 ### Acknowledgement
 
-This project was partially supported by the ACTION project (grant agreement number 824603), co-funded by
+This project is partially supported by the ACTION project (grant agreement number 824603), co-funded by
 the European Commission under the Horizon 2020 Framework Programme.
