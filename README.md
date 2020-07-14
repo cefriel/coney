@@ -98,6 +98,23 @@ To know more in details the project you can access related pubblications:
 
 Coney has been developed by [Cefriel](https://www.cefriel.com/). If you have more questions or feedback don’t hesitate to contact the Coney Team at [coney@cefriel.com](mailto:coney@cefriel.com).
 
+### Cite as
+
+If you used Coney in your work, please cite the IJHCS article:
+
+```bib
+@article{celino2020submitting,
+title = "Submitting surveys via a conversational interface: An evaluation of user acceptance and approach effectiveness",
+journal = "International Journal of Human-Computer Studies",
+volume = "139",
+pages = "102410",
+year = "2020",
+issn = "1071-5819",
+doi = "https://doi.org/10.1016/j.ijhcs.2020.102410",
+author = "Irene Celino and Gloria {Re Calegari}"
+}
+```
+
 ### Coney Enterprise Edition
 
 The Coney Enterprise Edition is mainly based on the open source components, but offers additional features:
