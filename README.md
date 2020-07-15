@@ -102,6 +102,10 @@ Coney has been developed by [Cefriel](https://www.cefriel.com/). If you have mor
 
 If you used Coney in your work, please cite the IJHCS article:
 
+> Irene Celino and Gloria Re Calegari: _Submitting surveys via a conversational interface: an evaluation of user acceptance and approach effectiveness_, International Journal of Human Computer Studies, Vol. 139, DOI: [10.1016/j.ijhcs.2020.102410](https://doi.org/10.1016/j.ijhcs.2020.102410), 2020.
+
+BibTeX reference:
+
 ```bib
 @article{celino2020submitting,
 title = "Submitting surveys via a conversational interface: An evaluation of user acceptance and approach effectiveness",
