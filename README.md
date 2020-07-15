@@ -19,6 +19,8 @@ To clone the repository and all submodules you should run the following command:
 git clone --recurse-submodules https://github.com/cefriel/coney.git
 ```
 
+Ongoing developments are committed to the repositories of the different components, therefore, it is important to consider the specific commit pointed by this repository for each component. Downloading submodules using the provided command guarantees that all the components are synched to the latest stable version.
+
 ### Toolkit Usage
 
 The repository contains a docker-compose file to build and deploy the entire project. Each submodule contains its own Dockerfile to build the related Docker image.
