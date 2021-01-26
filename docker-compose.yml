@@ -45,7 +45,7 @@ services:
       depends_on: 
         - coney-api
     coney-neo4j: 
-      image: neo4j:3.5.15
+      image: neo4j:3.5
       # Remove comments to reach Neo4j GUI from localhost
       ports:
       # HOST_PORT:CONTAINER_PORT
