@@ -1,6 +1,6 @@
 # Coney - Community Edition
 
-Coney is a complete toolkit for CONversational survEYs offering components to design and administer surveys, and to analyse data.
+Coney is a complete toolkit developed by [Cefriel](https://www.cefriel.com/) for CONversational survEYs offering components to design and administer surveys, and to analyse data.
 
 <p align="left"><img src="/coney-community.png" alt="Coney components" width="600"></p>
 
@@ -92,13 +92,21 @@ The backend API can be reached at `localhost/coney-api/<method_name>`. If enable
 
 More information on the components and how to use them are available in the repository Wiki.
 
+### Coney Enterprise Edition
+
+The Coney Enterprise Edition is mainly based on the open source components, but offers additional features:
+- Multi-user and multi-project features to support hierarchies and access levels for surveys
+- Centralized console to access Coney components and browse projects and surveys
+- Link personalization for survey delivery (users, metadata, limit to number completions)
+- Chat interface personalization (colors, logo, etc.)
+	
+If you are interested, or if you simply want to know more, contact us visiting [coney.cefriel.com](https://coney.cefriel.com).
+
 ### Publications
 
 To know more in details the project you can access related pubblications:
 - _CHItaly 2019_: Extended abstract and poster "CONEY: A CONversational survEY Toolkit" on [Zenodo](https://doi.org/10.5281/zenodo.3446014)
-- _IJHCS 2020_: Journal paper "Submitting surveys via a conversational interface: An evaluation of user acceptance and approach effectiveness" on [Arxiv](https://arxiv.org/pdf/2003.02537.pdf) 
-
-Coney has been developed by [Cefriel](https://www.cefriel.com/). If you have more questions or feedback don’t hesitate to contact the Coney Team at [coney@cefriel.com](mailto:coney@cefriel.com).
+- _IJHCS 2020_: Journal paper "Submitting surveys via a conversational interface: An evaluation of user acceptance and approach effectiveness" on [Arxiv](https://arxiv.org/pdf/2003.02537.pdf)
 
 ### Cite as
 
@@ -120,16 +128,6 @@ doi = "https://doi.org/10.1016/j.ijhcs.2020.102410",
 author = "Irene Celino and Gloria {Re Calegari}"
 }
 ```
-
-### Coney Enterprise Edition
-
-The Coney Enterprise Edition is mainly based on the open source components, but offers additional features:
-- Multi-user and Multi-project features to support hierarchies and access levels for surveys
-- Centralized console to access Coney components
-- Link personalization for survey delivery (users, metadata, limit to number completions)
-- API authentication
-	
-If you are interested, or if you simply want to know more, send us an email at [coney@cefriel.com](mailto:coney@cefriel.com).
 
 ### License
 
