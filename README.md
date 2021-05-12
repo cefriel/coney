@@ -104,9 +104,10 @@ If you are interested, or if you simply want to know more, contact us visiting [
 
 ### Coney In-Use
 
-List of studies using Coney:
+Published studies using Coney:
 - TESS Network Motivation Survey Dataset [Data set]. Zenodo. http://doi.org/10.5281/zenodo.3739058
 - Ride2Rail Choice Criteria Survey Dataset [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4593471
+
 To add something to the list please either submit a pull request or open an issue.
 
 ### Publications
