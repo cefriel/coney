@@ -102,6 +102,13 @@ The Coney Enterprise Edition is mainly based on the open source components, but 
 	
 If you are interested, or if you simply want to know more, contact us visiting [coney.cefriel.com](https://coney.cefriel.com).
 
+### Coney In-Use
+
+List of studies using Coney:
+- Damiano Scandolari, Gloria Re Calegari, Mario Scrocca, & Irene Celino. (2020). TESS Network Motivation Survey Dataset [Data set]. Zenodo. http://doi.org/10.5281/zenodo.3739058
+- Mario Scrocca, Marco Comerio, Damiano Scandolari, & Gloria Re Calegari. (2021). R2R Choice Criteria Survey Dataset (Version 1.0.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4593471
+To add something to the list please either submit a pull request or open an issue.
+
 ### Publications
 
 To know more in details the project you can access related pubblications:
