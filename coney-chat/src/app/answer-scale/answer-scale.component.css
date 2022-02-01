@@ -1,0 +1,23 @@
+#answer-comp{
+    margin: 0px;
+    padding: 10px;
+}
+.scale#answer-comp{
+ padding-top:0px!important;
+}
+
+#inner-container{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: #b2b8c7;
+    border-color: #b2b8c7;
+  }
+  .filled {
+    color: #b2b8c7;
+    border-color: #b2b8c7;
+  }
+

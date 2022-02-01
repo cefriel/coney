@@ -1,0 +1,17 @@
+<form>
+  <div class="form-group">
+    <p class="text-center">
+      Publishing this chat, you won't be able to modify it in the future.
+      Do you confirm this operation?
+    </p>
+  </div>
+
+  <div class="form-group">
+    <button mat-raised-button color="primary" type="button" id="publishBtn"style="width: 100%;" (click)="publish()"
+      [disabled]="!canPress">Publish</button>
+  </div>
+
+  <div class="form-group">
+    <button mat-button type="button" style="width: 100%;" (click)="close()">Close</button>
+  </div>
+</form>

@@ -1,0 +1,18 @@
+<div class="row m-0 p-3 justify-content-center">
+    <h4 style="width: 100%;">Share link</h4><br>
+    <p style="width: 100%;" class="mb-3"><small>Copy this url (click on it) and share it with anyone you want to let them fill your survey!</small></p>
+
+    <div class="row mx-0 my-4">
+
+        <div class="col-1" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+            <img height="48px"
+            src="./assets/clipboard_copy.svg">
+        </div>
+        <div class="col-11">
+            <p style="cursor: pointer;" (click)="copyText()"><small style="width: 100%; overflow-wrap: break-word;">{{genericLink}}</small></p>
+        </div>
+    </div>
+    
+
+    <button mat-button (click)="close()" class="my-3">Close</button>
+</div>

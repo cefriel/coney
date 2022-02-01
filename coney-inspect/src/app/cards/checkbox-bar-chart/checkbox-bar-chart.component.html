@@ -1,0 +1,47 @@
+<div  [hidden]="noData" class="card text-center justify-content-center p-3" style="width: 100%">
+    <h5>Checkbox questions</h5>
+    <h6>{{selectedQuestion}}</h6>
+    <h6 style="font-weight: 400!important;">filled by {{totalSessions}} users</h6>
+    <div class="row m-0">
+        <div class="col-md-4 col-lg-4 p-2 hideOnMobile vertically-centered">
+            <mat-radio-group [(ngModel)]="selectedQuestion" (change)="ngOnChanges()">
+                <mat-radio-button style="width: 100%" *ngFor="let question of questions" [value]="question.question">
+                    <span style="width: 20%; color: gray; text-transform: uppercase">[ {{question.tag}} ]</span>
+                    {{question.question}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+
+        <div class="col-xs-12 p-2 displayOnMobile" style="display: none; width: 100%;">
+
+
+            <mat-form-field style="width: 100%;">
+                <mat-label>Questions</mat-label>
+                <mat-select [(value)]="selectedQuestion" (selectionChange)="ngOnChanges()">
+                    <mat-option *ngFor="let question of questions" [value]="question.question">
+                        {{question.question}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-xs-12 col-md-5 col-lg-5 vertically-centered my-3">
+            <div *ngIf="noData">
+                <p>No numerical data found for this tag</p>
+            </div>
+            <div #checkboxChartContainer id="checkboxChartContainer" (window:resize)="createChart()" class="row m-0"></div>
+           
+        </div>
+        <div  *ngIf="!noData" class="col-xs-12 col-md-3 col-lg-3 mb-2 vertically-centered" style="overflow-y: auto;">
+            <div class="row mx-0"  *ngFor="let item of dataToUse">
+               
+                <p class="mb-0"><span style="font-weight: 900; border-radius: 30px;" [style.background]="item.color"
+                        [style.color]="item.color">
+                        oo</span> {{item.label}}
+                    </p>
+                    
+            </div>
+        </div>
+    </div>
+</div>

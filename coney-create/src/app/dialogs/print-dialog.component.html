@@ -1,0 +1,68 @@
+<div style="height: 100%; width: 100%;">
+
+    
+    <div class="row mx-0 my-0">
+        <div class="col-10">
+            <h5>{{title}}</h5>
+        </div>
+        <div class="col-2">
+            <button id="print" type="print" class="btn btn-secondary"  printSectionId="print-section" 
+            [useExistingCss]="true"
+            ngxPrint>
+
+            <img class="topBarImg" src="./assets/navbar/print.svg">
+                
+            </button>
+        </div>
+    </div>
+
+    <div class="row mx-0 my-0"  id="print-section">
+        <div *ngFor="let question of questions" class="card p-3 m-1" style="width: 100%;">
+            <div class="row mx-0 py-2 px-0">
+
+               
+                <div class="col-2 vertically-centered" style="border-right: 1px solid gray;">
+
+                    <div style="width: 100%; justify-content: center; display: flex;">
+                        <div style="border-radius: 4px;
+                        padding: 0px 1rem;
+                        border: 2px solid gray;" class="text-center">
+                            <h4 class="mb-1">{{question.order}}</h4>
+                        </div>
+                    </div>
+
+                    <div *ngIf="question.type == 'star'" class="py-2 text-center" style="width:100%">⭐ {{question.type}}</div>
+                    <div *ngIf="question.type == 'emoji'" class="py-2 text-center" style="width:100%">😄 {{question.type}}</div>
+                    <div *ngIf="question.type == 'slider'" class="py-2 text-center" style="width:100%">➖ {{question.type}}</div>
+                    <div *ngIf="question.type == 'options'" class="py-2 text-center" style="width:100%">🔘 {{question.type}}</div>
+                    <div *ngIf="question.type == 'select'" class="py-2 text-center" style="width:100%">🔽 {{question.type}}</div>
+                    <div *ngIf="question.type == 'checkbox'" class="py-2 text-center" style="width:100%">☑️ {{question.type}}</div>
+                    <div *ngIf="question.type == 'text'" class="py-2 text-center" style="width:100%">📜 {{question.type}}</div>
+
+                    <p style="width:100%; text-align: center; text-transform: lowercase; font-weight: bold; margin:0px">🏷️ {{question.tag}}</p>
+
+                </div>
+
+               
+                <div class="col-10">
+                    <h5 style="width: 100%;" class="mb-3">{{question.text}}</h5>
+                    <ul style="list-style: circle;">
+                        <li *ngFor="let answer of question.answers">
+
+                            <h6 *ngIf="question.type!='star'"> 
+                                <span *ngIf="answer.value!=0 " class="order-square">{{answer.value}}</span>  {{answer.text}} 
+                                <small *ngIf="answer.nextQuestionId > 0"> → to <span class="span-square">{{answer.nextQuestionId}}</span></small>
+                                <small *ngIf="answer.nextQuestionId == 0"> Survey ended</small>
+                            </h6>
+                            <h6 *ngIf="question.type=='star'">
+                                <span *ngIf="answer.value!=0" class="order-square" >{{answer.order}}</span>  ⭐
+                                <small *ngIf="answer.nextQuestionId > 0"> → to <span class="span-square">{{answer.nextQuestionId}}</span></small>
+                                <small *ngIf="answer.nextQuestionId == 0"> Survey ends</small>
+                            </h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

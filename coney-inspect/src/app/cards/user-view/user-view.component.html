@@ -1,0 +1,74 @@
+<div class="row m-0" style="width: 100%">
+    <div class="col-md-4 col-lg-3 hideOnMobile">
+        <!--radio list for desktop and tablet-->
+        <div class="card m-2 p-3">
+
+            <h5 style="width: 100%; margin-bottom: 1.5rem;">Participants</h5>
+            
+            <mat-radio-group [(ngModel)]="selectedUser" (change)="ngOnChanges()" style="max-height: 75vh;overflow: auto;">
+                <mat-radio-button style="width: 100%" *ngFor="let user of users" [value]="user">
+                    {{user.user}} <span style="color: gray;"><small>[{{user.session}}]</small></span>
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+
+    <div class="col-12 displayOnMobile no-p-mobile" style="display: none;">
+        <!--selectList for mobile-->
+        <div class="card m-2 p-3">
+            <mat-form-field style="width: 100%;">
+                <mat-label>Participants</mat-label>
+                <mat-select [(value)]="selectedUser" (selectionChange)="ngOnChanges()">
+                    <mat-option *ngFor="let user of users" [value]="user">
+                        {{user.user}} <span style="color: gray;"><small>[{{user.session}}]</small></span>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="col-md-8 col-lg-9 no-p-mobile">
+        <!--List-->
+        <div class="card m-2 p-4" *ngIf="selectedUser!=undefined">
+            <h5 style="width: 100%; margin-bottom: 1.5rem;">
+                <span style="font-weight: 500;">  {{selectedUser.user}} </span> answers</h5>
+            <div class="row mx-0" *ngFor="let question of selectedQuestions">
+                <h6 style="width: 100%;"> - [{{question.tag}}] {{question.question}}</h6>
+
+                <div *ngIf="question.type == 'star'" style="width: 100%; padding-left: 1.5rem;">
+                    <p>⭐ {{question.label}} - [{{question.value}}]</p>
+                </div>
+
+                <div *ngIf="question.type == 'options'" style="width: 100%; padding-left: 1.5rem;">
+                    <p>🔘 {{question.label}} - [{{question.value}}]</p>
+                </div>
+
+                <div *ngIf="question.type == 'emoji'" style="width: 100%; padding-left: 1.5rem;">
+                    <p>😄 {{question.label}} - [{{question.value}}]</p>
+                </div>
+
+                <div *ngIf="question.type == 'slider'" style="width: 100%; padding-left: 1.5rem;">
+                    <p>➖ {{question.label}} - [{{question.value}}]</p>
+                </div>
+
+                <div *ngIf="question.type == 'select'" style="width: 100%; padding-left: 1.5rem;">
+                    <p>🔽 {{question.label}} - [{{question.value}}]</p>
+                </div>
+
+                <div *ngIf="question.type == 'checkbox'" style="width: 100%; padding-left: 1.5rem;">
+                    <p *ngFor="let answer of question.label">☑️ {{answer}}</p>
+                </div>
+
+                <div *ngIf="question.type == 'text'" style="width: 100%; padding-left: 1.5rem;">
+                    <p>📜 {{question.label}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card m-2 p-4" *ngIf="selectedUser==undefined">
+            <h6>Select a participant</h6>
+        </div>
+    </div>
+</div>
+
+

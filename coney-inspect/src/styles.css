@@ -1,0 +1,151 @@
+@import url("coney-theme.css");
+@import url("styles-mobile.css");
+
+html, body, app-root {
+    font-family: Quicksand,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  }
+  
+  .mat-button, .mat-select, .mat-option, .mat-input, .mat-form-field{
+    font-family: Quicksand,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"!important;
+  }
+
+  body{
+    background: url(./assets/pattern.png);
+  }
+
+#nav{
+    border-radius: 4px;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+#openConvExt{
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 11vh;
+    bottom: 4vh;
+    left: 0;
+    display: flex;
+    right: 0;
+}
+
+#toast-container{
+    position: absolute;
+    top: 100px;
+    right: 30px;
+}
+
+#no-c-found{
+    font-size: 18px;
+    color: gray;
+}
+
+.toast-error{
+    background: lightcoral;
+    border-radius: 8px;
+    color: white!important;
+}
+
+.toast-message{
+    padding: 15px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    border-radius: 8px;
+}
+
+#navContainer{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 100;
+    transition: all 0.2s ease-in;
+}
+
+.card{ 
+    border-radius: 4px!important;
+}
+
+#hidingDiv{
+    background-color: white;
+    box-shadow: none;
+    position: absolute;
+    right: 0px;
+    top: 6vh;
+    overflow: hidden;
+    height: 0px;
+    transition: height 0.2s ease-out;
+}
+
+#buttonBar{
+    float:right;
+}
+
+.cube{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 0px;
+}
+#legendNoValue{
+    position: absolute; 
+    top: 0px; 
+    right: 0px;
+    width: 30%;
+}
+#loadingSpinner{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    z-index: 5;
+  }
+
+.mat-checkbox-label {
+    white-space: normal!important;
+    text-align: left;
+ }
+
+ .mat-radio-label {
+    white-space: normal!important;
+    text-align: left;
+ }
+
+ .pr-sc{
+    margin-top: -1rem;
+    margin-left: 0px!important;
+ }
+
+
+ #multipleChoiceChartContainer{
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+ }
+
+ .vertically-centered{
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+ }
+
+ #dropdown {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+    display: none;
+    background-color: white;
+
+    list-style: none;
+    padding: 10px;
+    right: 3rem;
+    border: 2px solid gray;
+    border-radius: 4px;
+    list-style: none;
+  }
+  
+  #drbtn:hover > #dropdown {
+    visibility: visible;
+    opacity: 1;
+    display: block!important;
+  }

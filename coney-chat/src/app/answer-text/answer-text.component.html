@@ -1,0 +1,40 @@
+<div class="row" id="answer-comp">
+  <div class="col-9">
+    <!--(keyup.enter)="callParent()" for enter submit-->
+
+    <mat-form-field *ngIf="answerType=='text'" color="accent" style="width: 100%;">
+      <textarea matInput #box rows="3" (keyup.enter)="callParent()" (input)="edited()" type="text" color="accent"
+      [(ngModel)]="inputText" name="text-answer" autofocus>
+        </textarea>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="answerType=='number'" color="accent" style="width: 100%;">
+      <mat-label>Number</mat-label>
+      <input matInput type="number" color="accent" name="text-answer" [(ngModel)]="inputText" (keyup.enter)="callParent()" (input)="edited()" autofocus>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="answerType=='date'" color="accent" style="width: 100%;">
+      <mat-label>Date</mat-label>
+      <input matInput type="date" color="accent" name="text-answer" [(ngModel)]="inputText" (keyup.enter)="callParent()" (input)="edited()" autofocus>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="answerType=='time'" color="accent" style="width: 100%;">
+      <mat-label>Time</mat-label>
+      <input matInput type="time" color="accent" name="text-answer" [(ngModel)]="inputText" (keyup.enter)="callParent()" (input)="edited()" autofocus>
+    </mat-form-field>
+    
+    <mat-form-field *ngIf="answerType=='url'" color="accent" style="width: 100%;">
+      <mat-label>Link</mat-label>
+      <input matInput type="url" color="accent" name="text-answer" [(ngModel)]="inputText" (keyup.enter)="callParent()" (input)="edited()" autofocus>
+    </mat-form-field>
+
+  </div>
+  <div class="col-3"  id="textAreaSendContainer">
+    <button mat-button color="accent" class="btn-send-answer" *ngIf="showSkip; else sendBtnEnabled" type="submit" (click)="skipQuestion()">skip</button>
+    <ng-template #sendBtnEnabled>
+      <button mat-button color="accent" class="btn-send-answer" (click)="callParent()" type="submit">
+        <img src="./assets/send.svg" height="25px">
+      </button>
+    </ng-template>
+  </div>
+</div>

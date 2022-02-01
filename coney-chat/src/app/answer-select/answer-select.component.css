@@ -1,0 +1,11 @@
+.mat-option{
+    font-size: 15px!important;
+}
+.mat-select-value {
+    font-size: 23px!important;
+}
+
+#btnDiv{
+    flex-flow: column;
+    display:flex;
+}

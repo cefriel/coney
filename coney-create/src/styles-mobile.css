@@ -1,0 +1,43 @@
+@media only screen and (max-width: 768px){
+    .topBarImg {
+        height: 20px!important;
+    }
+
+
+    .hideOnMobile{
+        display: none!important;
+    }
+
+    #commandsUl{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #commands-container {
+        position: fixed;
+        left: 0px;
+        justify-content: space-around;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    #statusVBarMobile{
+        height: 4px;
+        border-radius: 20px;
+        color: transparent;
+        margin-left: 4px!important;
+        margin-right: 4px!important;
+        display: flex!important;
+        width: 100%;
+    }
+
+    .fullWidthOnMobile{
+        width: 100%;
+        padding-left: 1rem!important
+    }
+
+    .minimap{
+        display: none;
+    }
+
+}

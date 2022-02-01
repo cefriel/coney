@@ -1,0 +1,83 @@
+<style>
+  .node-choice {
+    color: #202124 !important;
+    border-color: #FFF !important;
+    background-color: #FFF !important;
+    box-shadow: 0 3px 3px 0 rgba(60, 64, 67, .08), 0 1px 3px 1px rgba(60, 64, 67, .16) !important;
+  }
+</style>
+<div style="height:100%; position: relative;">
+  <div class="row align-items-center m-0 p-0">
+
+    <p class="text-center" style="width: 100%; font-size: 20px">Open Conversation</p>
+    <form class="row" style="margin: 0px; width: 100%">
+      <div class="col-12 mt-3">
+        <mat-form-field  style="width: 100%;">
+        <input matInput id="titleInput" [(ngModel)]="titleValue" [ngModelOptions]="{standalone: true}" style="width: 100%;"
+          type="text" placeholder="Title" (input)="titleSelectionChanged()">
+        </mat-form-field>
+      </div>
+      <div *ngIf="showProject" class="col-6">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Status</mat-label>
+              <mat-select [(value)]="selectedStatus" (selectionChange)="selectionChanged()">
+                <mat-option *ngFor="let i of statuses" [value]="i">
+                  {{i}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+      <div *ngIf="showProject" class="col-6">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Projects</mat-label>
+            <mat-select [(value)]="selectedProject" (selectionChange)="selectionChanged()">
+              <mat-option *ngFor="let i of projects" [value]="i">
+                {{i}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+
+    <div *ngIf="!showProject" class="col-12">
+      <mat-form-field style="width: 100%;">
+        <mat-label>Status</mat-label>
+          <mat-select [(value)]="selectedStatus" (selectionChange)="selectionChanged()">
+            <mat-option *ngFor="let i of statuses" [value]="i">
+              {{i}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+    </form>
+  </div> 
+  
+  <!-- Loading spinner -->
+  <mat-progress-bar id="loadingSpinnerConv" *ngIf="isLoading" style="width:100%"
+    mode="indeterminate"></mat-progress-bar>
+
+  <div class="row" style="position: relative;">
+    <p class="pl-2" *ngIf="!chatsFound; else showChats" style="text-align: center">No
+      chats found</p>
+    <ng-template #showChats>
+      <form id="scrollTab"
+        style="width:100%; height: 100%; overflow-y: auto; max-height: 50vh;">
+        <div *ngFor="let chat of chats" (click)="chatSelected(chat)">
+          <div class="ml-1 mr-1">
+            <button mat-button type="button" class="text-left" style="width: 100%;">
+                <div class="row m-0"> {{chat.conversationTitle}}
+                  <span *ngIf="showProject" style="position: absolute;  right: 1.5rem;">{{chat.accessLevel}}</span>
+                 </div>
+                <div *ngIf="showProject" class="row pr-sc" style="color: gray;"> {{chat.projectName}} </div>
+              <div class="statusSquare" *ngIf="chat.status == 'published'"
+                style="background-color: #4caf50"></div>
+              <div class="statusSquare" *ngIf="chat.status == 'saved'"
+                style="background-color: #6c757d"></div>
+              <div class="statusSquare" *ngIf="chat.status == 'unpublished'"
+                style="background-color: #03a9f4"></div>
+            </button>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+  </div>
+</div>

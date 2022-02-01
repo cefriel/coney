@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+@include mat-core();
+$coney-create-primary: mat-palette($mat-cyan, 700, 800);
+$coney-create-accent:  mat-palette($mat-amber, 500, 900, A200);
+$coney-create-warn:    mat-palette($mat-red);
+$coney-create-theme: mat-light-theme($coney-create-primary, $coney-create-accent, $coney-create-warn);
+$custom-typography: mat-typography-config(
+  $font-family: "Segoe UI"
+);
+@include mat-core($custom-typography);
+
+@include angular-material-theme($coney-create-theme);
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-light-blue);
+  $alternate-accent:  mat-palette($mat-yellow, 400);
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+  @include angular-material-theme($alternate-theme);
+}

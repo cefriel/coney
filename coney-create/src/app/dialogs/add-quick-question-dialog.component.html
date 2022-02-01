@@ -1,0 +1,32 @@
+ <div class="row">
+   <div class="col-5">
+      <div class="form-group">
+          <label id="example-radio-group-label">Pick a type of question</label>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            [(ngModel)]="pickedType">
+            <mat-radio-button class="example-radio-button" *ngFor="let type of types" [value]="type">
+              {{type}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="form-group row text-center justify-content-center">
+            <button mat-raised-button color="primary" style="width: 100%;" type="button" (click)="save()">Add</button>
+          </div>
+   </div>
+   <div class="col-7">
+      <div class="form-group">
+          <div *ngIf="pickedType == 'Multiple choice'" class="row text-center justify-content-center">
+            <div class="row mb-2 ml-0 mr-0">
+                <span style="position: absolute;z-index: 1;top: 3px;color: #7c7c7c;left: 25px;">N° of answers:</span>
+                <input name="amount" style="width: 100%" class="customInput text-right" type="number" min="1" max="9"
+                  [(ngModel)]="answersAmount">
+            </div>
+            <div class="row mt-2">
+              <p style="width: 100%; padding-bottom: 5px;">Add different answers separated by '-'</p>
+              <textarea style="width: 100%; height: 132px; border-radius: 4px; padding: 10px" [(ngModel)]="content" [ngModelOptions]="{standalone: true}"
+                placeholder="Answer 1 - Answer 2 - ..."></textarea>
+            </div>
+          </div>
+        </div>
+   </div>
+  </div>

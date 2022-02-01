@@ -1,0 +1,14 @@
+<div class="wrapper" style>
+    <div class="row hideOnMobile" style="width: 220px!important;" id="resetBtn">
+        <button mat-raised-button title="Zoom out" (click)="zoom(1)" class="col mr-1" style="line-height: 30px!important;">
+            <img src="./assets/zoom-out.svg" height="18px">
+        </button>
+        <button mat-raised-button title="Center view" (click)="resetView()" class="col" style="line-height: 30px!important;">
+            <img src="./assets/shrink.svg" height="18px">
+        </button>
+        <button mat-raised-button title="Zoom in" (click)="zoom(0)" class="col ml-1" style="line-height: 30px!important;">
+            <img src="./assets/zoom-in.svg" height="18px">
+        </button>
+    </div>
+    <div #nodeEditor class="node-editor"></div>
+</div>

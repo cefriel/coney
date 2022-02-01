@@ -1,0 +1,18 @@
+<div id="answer-comp" class="row m-0 justify-content-center text-center scale">
+  <div id="answer-comp-internal">
+    <div class="col-12 mb-2" style="overflow-y: scroll; max-height: 35vh;">
+        <form [formGroup]="valueFormGroup" class="text-left">
+            <div *ngFor="let val of answerList; let i = index" >
+                <mat-checkbox *ngIf="(last.text == undefined) || (i != answerList.length-1)" class="example-margin cb-norm" 
+                (change)="onChange($event, false)" [value]="val" [disabled]="disabled">{{val.text}}</mat-checkbox>
+                <mat-checkbox *ngIf="(last.text != undefined) && (i == answerList.length-1)" class="example-margin" 
+                (change)="onChange($event, true)" [value]="val">{{ val.text.substr(4, val.length) }}</mat-checkbox>
+            </div>
+         </form>
+    </div>
+
+    <div class="col-12">
+      <button mat-button color="accent" class="btn-send-answer"(click)="callParent()">Send</button>
+    </div>
+  </div>
+</div>

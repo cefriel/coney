@@ -1,0 +1,71 @@
+<div id="answer-comp" class="row m-0 justify-content-center text-center">
+    <div id="answer-comp-internal">
+        <div class="col-12 mt-3">
+            <p id="emojiValue">{{displayValue}}</p>
+        </div>
+        <div class="col-12 mt-3 mb-3" id="emoji-row" (keyup.enter)="callParent()">
+            <div *ngIf="numberOfAnswers==5" class="row">
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 1)" class="btn emoji-btn pl-0 pr-0 mb-0">😩</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 2)" class="btn emoji-btn pl-0 pr-0">😞</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 3)" class="btn emoji-btn pl-0 pr-0">😐</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 4)" class="btn emoji-btn pl-0 pr-0">😊</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 5)" class="btn emoji-btn pl-0 pr-0">😄</button>
+                </div>
+            </div>
+            <div *ngIf="numberOfAnswers==4" class="row">
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 1)" class="btn emoji-btn pl-0 pr-0 mb-0">😩</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 2)" class="btn emoji-btn pl-0 pr-0">😞</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 3)" class="btn emoji-btn pl-0 pr-0">😊</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 4)" class="btn emoji-btn pl-0 pr-0">😄</button>
+                </div>
+            </div>
+            <div *ngIf="numberOfAnswers==3" class="row">
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 1)" class="btn emoji-btn pl-0 pr-0 mb-0">😩</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 2)" class="btn emoji-btn pl-0 pr-0">😐</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 3)" class="btn emoji-btn pl-0 pr-0">😄</button>
+                </div>
+            </div>
+            <div *ngIf="numberOfAnswers==2" class="row">
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 1)" class="btn emoji-btn pl-0 pr-0 mb-0">😩</button>
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 2)" class="btn emoji-btn pl-0 pr-0">😄</button>
+                </div>
+            </div>
+            <div *ngIf="numberOfAnswers==1" class="row">
+                <div class="col" style="padding: 0px;">
+                    <button (click)="emojiSelected($event, 1)" class="btn emoji-btn pl-0 pr-0 mb-0">👍</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mb-3">
+            <button mat-button color="accent" class="btn-send-answer"
+             *ngIf="response.value != 0; else sendDisabled" (click)="callParent()">Send</button>
+            <ng-template #sendDisabled>
+                    <button mat-button color="accent" class="btn-send-answer" disabled>Send</button>
+            </ng-template>
+        </div>
+    </div>
+</div>

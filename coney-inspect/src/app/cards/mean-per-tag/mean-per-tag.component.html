@@ -1,0 +1,23 @@
+<div class="card p-3" style="height: 100%">
+
+    <h4 class="row ml-0 mr-0 mb-3">Mean value per tag</h4>
+
+    <div class="m-0 pb-4 row" style=" height: 100%; display: flex; justify-content: center;">
+        <div class="col p-1" *ngFor="let dato of dataToShow" style="justify-content: center;
+        flex-direction: column;
+        display: flex;">
+            <h4 style="text-align: center; color: rgb(119, 119, 119); font-weight: bold" *ngIf="dato.mean == 0.00; else availableData" class="m-0">N/A</h4>
+            <ng-template #availableData>
+                <h4 style="text-align: center; color: #eb4841; font-weight: bold" *ngIf="dato.mean < (dato.min + (dato.step))" class="m-0">{{dato.mean}}</h4>
+                <h4 style="text-align: center; color: #f48847; font-weight: bold" *ngIf="dato.mean > (dato.min + (dato.step)) && dato.mean < (dato.min + (dato.step*2))" class="m-0">
+                    {{dato.mean}}</h4>
+                <h4 style="text-align: center; color: #ffc84a; font-weight: bold" *ngIf="dato.mean > (dato.min + (dato.step*2)) && dato.mean < (dato.min + (dato.step*3))" class="m-0">
+                    {{dato.mean}}</h4>
+                <h4 style="text-align: center; color: #a6c34c; font-weight: bold" *ngIf="dato.mean > (dato.min + (dato.step*3)) && dato.mean < (dato.min + (dato.step*4))" class="m-0">
+                    {{dato.mean}}</h4>
+                <h4 style="text-align: center; color: #4ec04e; font-weight: bold" *ngIf="dato.mean > (dato.min + (dato.step*4))" class="m-0">{{dato.mean}}</h4>
+            </ng-template>
+            <p class="m-0" style="text-align: center; text-transform: capitalize">{{dato.tag}}</p>
+        </div>
+    </div>
+</div>

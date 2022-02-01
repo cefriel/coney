@@ -1,0 +1,67 @@
+<div *ngIf="language != 'it'" style="color: #50505b">
+
+    <h4>Cookies</h4>
+    <br><br>
+    <p >
+        Technical cookies, in particular navigation or session cookies, will be used to guarantee the normal navigation and use of the website.
+        <br>
+        No cookies will be gathered or saved and no third parties services will be used to keep track of the behavior of the user.
+        <br><br>
+        By pressing on the AGREE button you will consent to the use of cookies. <br>
+        Please consult our <a [attr.href]="privacyNoticeLink" target="_blank">Privacy Policy</a> for
+        additional information on Cookies, Privacy and Data Processing Notice.<br>
+    </p>
+
+    <br><br>
+    <div style="width: 100%; text-align: right;">
+        <button type="button" (click)="agreeAndCloseDialog()" style="
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding: 0 16px;
+    border-radius: 4px;
+    color: #0097a7;
+    line-height: 36px;font-family: Segoe UI;
+    font-size: 14px;
+    font-weight: 500;background: transparent;
+    overflow: visible;">AGREE</button>
+    </div>
+
+</div>
+
+<div *ngIf="language == 'it'" style="color: #50505b">
+
+    <h4>Cookies</h4>
+    <br><br>
+
+    <p>
+        I cookie tecnici, in particolare quelli di 'navigazione' o di 'sessione', verranno usati per garantire la normale navigatione ed il normale utilizzo del sito web.
+        <br>
+        Nessun cookie verrà raccolto o salvato e nessun servizio di terze parti viene utilizzato per tenere traccia del comportamento dell'utente.
+        <br><br>
+        Premento su ACCETTA, acconsentirai all'utilizzo dei cookies. <br>
+        Per ulteriori informazioni riguardo la nostra Normativa sulla Privacy, Cookie e normative di trattamento dati, consulta la nostra Privacy Policy.
+        <br>
+        <a [attr.href]="privacyNoticeLink" target="_blank">Privacy Policy</a>
+    </p>
+
+    <br><br>
+    <div style="width: 100%; text-align: right;">
+        <button type="button" (click)="agreeAndCloseDialog()" style="
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding: 0 16px;
+    border-radius: 4px;
+    color: #0097a7;
+    line-height: 36px;font-family: Segoe UI;
+    font-size: 14px;
+    font-weight: 500;background: transparent;
+    overflow: visible;">ACCETTA</button>
+    </div>
+
+</div>

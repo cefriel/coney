@@ -1,0 +1,26 @@
+@media only screen and (max-width: 768px){
+    #hidingDiv{
+        right: 50%!important;
+        transform: translate(50%,0)!important;
+        top: 16vh!important;
+    }
+
+    #buttonBar{
+        position: relative!important;
+        top: 0px!important;
+        right: 0px!important;
+        width: 100%!important;
+    }
+
+    .hideOnMobile{
+        display: none!important;
+    }
+
+    .displayOnMobile{
+        display: block!important;
+    }
+
+    .no-p-mobile{
+        padding: 0px!important;
+    }
+}

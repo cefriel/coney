@@ -1,0 +1,28 @@
+<style>
+  p {
+    margin-bottom: 0px !important;
+  }
+</style>
+<div id="answer-comp" class="row m-0 justify-content-center text-center">
+  <div id="answer-comp-internal">
+    <div class="col-12 mt-3 mb-3">
+      <mat-slider (keyup.enter)="callParent()" style="width:100%; margin-top:0px;" [max]="max" [min]="min" [step]="step" [(ngModel)]="value"
+        [value]="value" (change)="changedSlide()">
+      </mat-slider>
+      <div style="float: left; margin-top: -5px;">
+          <p class="minmax-val" id="value-min">{{minLabel}}</p>
+        </div>
+        <div style="float: right; margin-top: -5px;">
+          <p class="minmax-val" id="value-max">{{maxLabel}}</p>
+        </div>
+    </div>
+    <div class="col-12 mb-2">
+      <button mat-button color="accent" *ngIf="touched; else sendDisabled" (click)="callParent()" class="btn-send-answer">Send</button>
+      <ng-template #sendDisabled>
+        <button mat-button color="accent" class="btn-send-answer" disabled>
+          Send
+        </button>
+    </ng-template>
+    </div>
+  </div>
+</div>

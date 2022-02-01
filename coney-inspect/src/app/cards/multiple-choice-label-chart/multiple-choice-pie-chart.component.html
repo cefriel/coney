@@ -1,0 +1,73 @@
+<div class="card text-center justify-content-center p-3" style="width: 100%">
+
+    <h5>Multiple choice questions</h5>
+    <h6>{{selectedQuestion}}</h6>
+    <h6 style="font-weight: 400!important;">total entries: {{totalEntries}}</h6>
+
+    <div class="row m-0" style="max-height: 50vh;">
+
+        <div class="col-md-4 col-lg-4 p-2 hideOnMobile vertically-centered" style="max-height: 50vh; overflow: auto;">
+            <mat-radio-group [(ngModel)]="selectedQuestion" (change)="ngOnChanges()">
+                <mat-radio-button style="width: 100%" *ngFor="let question of questions" [value]="question.question">
+                    <span style="width: 20%; color: gray; text-transform: uppercase">[ {{question.tag}} ]</span>
+                    {{question.question}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div class="col-xs-12 p-2 displayOnMobile" style="display: none; width: 100%;">
+
+
+            <mat-form-field style="width: 100%;">
+                <mat-label>Questions</mat-label>
+                <mat-select [(value)]="selectedQuestion" (selectionChange)="ngOnChanges()">
+                    <mat-option *ngFor="let question of questions" [value]="question.question">
+                        {{question.question}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-xs-12 col-md-5 col-lg-5 vertically-centered">
+            <div *ngIf="noData">
+                <p>No numerical data found for this tag</p>
+            </div>
+            <div class="row my-4 mx-0 justify-content-center text-center">
+
+                
+                <div #multipleChoiceBoxContainer *ngIf="displayBoxes"
+                    id="multipleChoiceBoxContainer" [style.height.px]="containerHeight" style="width: 100%; flex-direction: column;
+                    align-content: flex-start;"
+                    (window:resize)="ngOnChanges()" class="row m-0">
+
+                    <div class="chartBox" *ngFor="let i of dataToVisualize" [style.background]="i.color"
+                        [style.width.px]="i.length" [style.height.px]="i.length" style="border: 1px solid white">
+                    </div>
+
+                </div>
+
+
+                <div #multipleChoiceChartContainer *ngIf="!displayBoxes"
+                    id="multipleChoiceChartContainer" style="min-height: 30vh;" (window:resize)="ngOnChanges()"
+                    class="row m-0"></div>
+
+            </div>
+        </div>
+
+        <div *ngIf="!noData" class="col-xs-12 col-md-3 col-lg-3 mb-2 vertically-centered" style="overflow-y: auto;">
+            <div class="row mx-0" *ngFor="let item of dataToUse">
+                <p *ngIf="item.amount!=0" class="mb-0">
+                    <span *ngIf="item.amount!=0" style="font-weight: 900; border-radius: 30px;"
+                        [style.background]="item.color" [style.color]="item.color">
+                        oo</span>  {{item.label}} - {{item.percentage}}% ({{item.amount}})</p>
+
+                <p *ngIf="item.amount==0" style="color: #b2b8c7!important;" class="mb-0">
+                    <span style="font-weight: 900; border-radius: 30px;"
+                        style="color: #b2b8c7!important; background: #b2b8c7!important;;">
+                        oo</span> {{item.label}}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

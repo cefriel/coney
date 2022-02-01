@@ -1,0 +1,44 @@
+<form style="margin-top: 1.25rem;">
+  <h4 class="col-12 text-center"> Save as:</h4>
+  <p style="color: red;" *ngIf="titleFieldEmpty || projectFieldEmpty || languageFieldEmpty">{{errorMessage}}</p>
+  <div class="form-group">
+
+    <mat-form-field style="width: 100%;">
+      <input matInput class="form-control form-control-lg" [(ngModel)]="titleValue" (selectionChange)="changed()" 
+    [ngModelOptions]="{standalone: true}" type="text" placeholder="Title" maxlength="30">
+    </mat-form-field>
+  
+  </div>
+  
+  <mat-form-field style="width: 100%;" *ngIf="showProject">
+    <mat-label>Choose a Project</mat-label>
+    <mat-select [(value)]="projectValue" (selectionChange)="projectChanged()">
+      <mat-option *ngFor="let project of projects" [value]="project">
+        {{project.projectName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;" *ngIf="showProject">
+    <mat-label>Access Level</mat-label>
+    <mat-select [(value)]="levelValue">
+      <mat-option *ngFor="let level of levels" [value]="level">
+        {{level}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field style="width: 100%;">
+    <mat-label>Language</mat-label>
+    <mat-select [(value)]="languageValue">
+      <mat-option *ngFor="let language of languages" [value]="language.tag">
+        {{language.lang}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="form-group">
+    <button mat-raised-button color="primary" type="button" style="width: 100%;" class="mt-3" (click)="save()">Save</button>
+  </div>
+  
+</form>

@@ -1,0 +1,26 @@
+<div class="card text-center justify-content-center p-3" style="width: 100%">
+    <div class="row mb-3">
+        <div class="col-8 text-left pl-3">
+            <h5 *ngIf="chosenTag != ''">Value distribution for tag: <span style="font-weight: bold">{{chosenTag}}</span>
+            </h5>
+            <h5 *ngIf="chosenTag == ''">Value distribution all tags</h5>
+        </div>
+        <div class="col-4 text-right pr-3">
+            <button mat-button *ngIf="chosenTag != ''" (click)="removeTag()">Clear Tag</button>
+            <button mat-raised-button color="primary" [value]="chosenTag" [matMenuTriggerFor]="menu">Tags</button>
+            <mat-menu #menu="matMenu">
+                <div *ngFor="let tag of tagStringList">
+                    <button style="text-transform: capitalize" (click)="setTag(tag)" [value]="tag"
+                        mat-menu-item>{{tag}}</button>
+                </div>
+            </mat-menu>
+        </div>
+    </div>
+    <div *ngIf="noData">
+        <p>No numerical data found for this tag</p>
+    </div>
+    <div class="row mx-0 p-3">
+        <div #valueDistrChart id="valueDistrChart" (window:resize)="ngOnChanges()"
+            style="width: 100%; margin-top: 20px; margin-bottom: 20px"></div>
+    </div>
+</div>

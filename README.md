@@ -14,16 +14,16 @@ You can try Coney at [bit.ly/try-coney](https://bit.ly/try-coney)!
 
 ### Clone the repository
 
-To clone the repository and all submodules you should run the following command:
+To clone the repository you can run the following command:
 ```
-git clone --recurse-submodules https://github.com/cefriel/coney.git
+git clone https://github.com/cefriel/coney.git
 ```
 
-Ongoing developments are committed to the repositories of the different components, therefore, it is important to consider the specific commit pointed by this repository for each component. Downloading submodules using the provided command guarantees that all the components are synched to the latest stable version.
+The development is no longer handled using submodules.
 
 ### Toolkit Usage
 
-The repository contains a docker-compose file to build and deploy the entire project. Each submodule contains its own Dockerfile to build the related Docker image.
+The repository contains a docker-compose file to build and deploy the entire project. Each Coney component contains its own Dockerfile to build the related Docker image.
 
 A utility script is added to the repository to handle common commands. Check line endings before running it on Windows.
 
@@ -100,12 +100,13 @@ The Coney Enterprise Edition is mainly based on the open source components, but 
 - Link personalization for survey delivery (users, metadata, limit to number completions)
 - Chat interface personalization (colors, logo, etc.)
 	
-If you are interested, or if you simply want to know more, contact us visiting [coney.cefriel.com](https://coney.cefriel.com).
+
+If you are interested, if you simply want to know more, and/or if you need help in the survey design process contact us visiting [coney.cefriel.com](https://coney.cefriel.com).
 
 ### Coney In-Use
 
 Published studies using Coney:
-- TESS Network Motivation Survey Dataset [Data set]. Zenodo. http://doi.org/10.5281/zenodo.3739058
+- Survey Study about Motivation for Participants in Citizen Science Projects [Data set]. Zenodo. https://doi.org/10.5281/zenodo.5753091
 - Ride2Rail Choice Criteria Survey Dataset [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4593471
 
 To add something to the list please either submit a pull request or open an issue.

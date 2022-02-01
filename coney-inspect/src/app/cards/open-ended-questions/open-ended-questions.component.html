@@ -1,0 +1,47 @@
+<div class="card p-3" style="width: 100%">
+
+    <div class="row m-0">
+        <h5>Open-ended questions</h5>
+    </div>
+
+    <div class="row m-0">
+
+        <div class="col-xs-12 col-md-4 col-lg-4 p-2" style="max-height: 80vh; overflow: auto;">
+            <div class="row ml-0 mr-0 mb-2">
+                <p>Choose one:</p>
+            </div>
+            <mat-radio-group [(ngModel)]="selectedQuestion" (change)="onChange()">
+                <mat-radio-button style="width: 100%" *ngFor="let question of questions" [value]="question">
+                    <span style="width: 20%; color: gray; text-transform: uppercase">[ {{question.tag}} ]</span>
+                    {{question.question}}
+                </mat-radio-button>
+            </mat-radio-group>
+
+        </div>
+
+        <div class="col-xs-12 col-md-8 col-lg-8" style="max-height: 80vh; overflow: auto;">
+
+            <div *ngIf="multipleSameAnswers">
+                <div class="row m-0 p-2">
+                    <div class="col-1 font-weight-bold">N°</div>
+                    <div class="col-11 font-weight-bold">Answer</div>
+                </div>
+                <div class="row m-0 p-2" style="border-bottom: 1px dashed rgb(158, 168, 173)"
+                    *ngFor="let answer of shownAnswers">
+                    <div class="col-1" *ngIf="answer.amount!=0">{{answer.amount}}</div>
+                    <div class="col-1" *ngIf="answer.amount==0"></div>
+                    <div class="col-11" >{{answer.answer}}</div>
+                </div>
+            </div>
+            <div *ngIf="!multipleSameAnswers">
+                <div class="row m-0 p-2">
+                    <div class="col-12 font-weight-bold">Answer</div>
+                </div>
+                <div class="row m-0 p-2" style="border-bottom: 1px dashed rgb(158, 168, 173)"
+                    *ngFor="let answer of shownAnswers">
+                    <div class="col-12" >{{answer.answer}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

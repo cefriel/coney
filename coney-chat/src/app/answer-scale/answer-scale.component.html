@@ -1,0 +1,21 @@
+<div id="answer-comp" class="row m-0 justify-content-center text-center scale">
+  <div id="answer-comp-internal">
+    <div class="col-12 mx-0" id="star-container" style="font-size: 35px!important; margin-top: 5px; padding: 0px!important;">
+
+      <ngx-stars [readonly]="false" [size]="size" [wholeStars]="true" 
+      [maxStars]="answers.length" [initialStars]="selected" 
+      [customStarIcons]="starIcons" 
+      (ratingOutput)="onRatingSet($event)"></ngx-stars>
+
+     
+    </div>
+
+    <div class="col-12"  style="margin-top: 15px!important" >
+      <button mat-button color="accent" *ngIf="selected; else submitDisabled" class="btn-send-answer"
+       (click)="callParent(answers[selected-1])">Send</button>
+      <ng-template #submitDisabled>
+        <button mat-button color="accent" class="btn-send-answer" disabled>Send</button>
+      </ng-template>
+    </div>
+  </div>
+</div>

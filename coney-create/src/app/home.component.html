@@ -1,0 +1,231 @@
+<div style="height: 100vh" tabindex="0" (keydown)="keyPressed($event)">
+  <!-- Top Bar -->
+  <div class="menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:0px!important; border-radius: 4px!important;">
+     
+        <div class="row navTitle">
+
+          <img src="./assets/navbar/create.png" class="m-1 pl-2" (click)="openDeliver()"
+          style="height: 45px; width: auto; cursor: pointer;">
+
+
+          <div class="row" id="statusVBarMobile" *ngIf="currentConversationStatus == 'saved'"
+          style="background-color: #6c757d;">.</div>
+          <div class="row" id="statusVBarMobile" *ngIf="currentConversationStatus == 'published'"
+          style="background-color: #4caf50;">.</div>
+          <div class="row" id="statusVBarMobile" *ngIf="currentConversationStatus == 'unpublished'"
+          style="background-color: #03a9f4;">.</div>
+          <div class="row" id="statusVBarMobile" *ngIf="currentConversationStatus == ''"
+          style="background-color: #2c2c2c28;">.</div>
+
+          <div class="fullWidthOnMobile" style="display: flex;">
+          <h6 id="projectFieldHome" class="m-0 p-2 halfWidthOnMobile">{{currentConversationProject}}</h6>
+
+          <div id="statusVBar" *ngIf="currentConversationStatus == 'published'" 
+          style="background-color: #4caf50; color:transparent" class="mb-2 mt-2 hideOnMobile">.</div>
+          <div id="statusVBar" *ngIf="currentConversationStatus == 'saved'" 
+          style="background-color: #6c757d; color:transparent" class="mb-2 mt-2 hideOnMobile">.</div>
+          <div id="statusVBar" *ngIf="currentConversationStatus == 'unpublished'" 
+          style="background-color: #03a9f4; color:transparent" class="mb-2 mt-2 hideOnMobile">.</div>
+          <div id="statusVBar" *ngIf="currentConversationStatus == ''" 
+          style="background-color: #2c2c2c28; color:transparent" class="mb-2 mt-2 hideOnMobile">.</div>
+
+          <input *ngIf="titleEditable; else titleDisabled" id="forminput1" class="m-0 p-2 halfWidthOnMobile"
+            [(ngModel)]="currentConversationTitle" maxlength="100" placeholder="Untitled Conversation">
+
+          <ng-template #titleDisabled>
+            <input style="background: transparent!important;" id="forminput1" class="m-0 p-2 halfWidthOnMobile"
+              [(ngModel)]="currentConversationTitle" placeholder="Title" disabled>
+          </ng-template>
+          </div>
+          
+          <div id="nav-right">
+
+            <h6 id="projectFieldHome" style="display: inline-block!important; padding-right: 10px; margin-bottom: 0px!important;">{{currentConversationLanguage}}</h6>
+            <button mat-raised-button *ngIf="currentConversationStatus != 'saved' && currentConversationStatus != ''" (click)="translationDialogButtonPressed()" class="ml-1 mr-3" type="button" style="padding: 0px 8px!important; min-width: 32px!important;">
+              <img class="topBarImg" src="./assets/navbar/translation.svg">
+            </button>
+            <button mat-raised-button 
+              *ngIf="(publishButtonEnabled && (currentConversationStatus === 'saved'));  else publishButtonDisabled"
+              type="button" class="ml-1 mr-1" style="text-transform: lowercase!important; background-color: #4caf50; color: white; padding: 0px 8px!important;" 
+              (click)="publishButtonPressed()">Publish</button>
+  
+            <ng-template #publishButtonDisabled>
+              <button mat-raised-button *ngIf="(publishButtonEnabled && (currentConversationStatus === 'unpublished'));" type="button"
+                class="ml-1 mr-1" (click)="publishButtonPressed()" style="padding: 0px 8px!important; text-transform: lowercase!important; background-color: #03a9f4; color: white">Re-publish</button>
+  
+              <button mat-raised-button color="warn" *ngIf="unpublishButtonEnabled; else unpublishButtonDisabled" type="button"
+                class="ml-1 mr-1" style="text-transform: lowercase!important; color: white" 
+                (click)="unpublishButtonPressed()" style="text-transform: lowercase!important; padding: 0px 8px!important;">Unpublish</button>
+  
+              <button mat-raised-button *ngIf="(publishButtonEnabled && (currentConversationStatus != 'unpublished'));" type="button"
+                class="ml-1 mr-1" style="text-transform: lowercase!important; background-color: #4caf50; color: white;padding: 0px 8px!important;" disabled>Publish</button>
+  
+            </ng-template>
+  
+            <button mat-raised-button *ngIf="deleteButtonEnabled; else deleteButtonDisabled" type="button" color="warn"
+              class="ml-1 mr-1" (click)="deleteButtonPressed()"  style="padding: 0px 8px!important; min-width: 32px!important;">
+              <img class="topBarImg" src="./assets/navbar/delete.svg" ></button>
+            <ng-template #deleteButtonDisabled>
+              <button mat-raised-button color="warn" type="button" class="ml-1 mr-1" style="padding: 0px 8px!important; min-width: 32px!important;" disabled>
+                <img class="topBarImg" src="./assets/navbar/delete.svg"></button>
+            </ng-template>
+  
+            <button mat-button *ngIf="enterprise" (click)="userLogout()" id="logoutBtn" class="ml-1 mr-1" style="padding: 0px 0px!important; min-width: 32px!important;">
+              <img class="topBarImg" src="./assets/navbar/logout.svg" ></button>
+            </div>
+        </div>
+       
+    </nav>
+    <mat-progress-bar *ngIf="loadingInProgress" style="width:100%" mode="indeterminate"></mat-progress-bar>
+    
+    <div id="commands-container">
+      <ul class="m-2 p-2" id="commandsUl">
+        <li class="nav-item">
+          <button mat-button title="New" *ngIf="newButtonEnabled; else newButtonDisabled" type="button" class="commands"
+            (click)="newButtonPressed()"><img class="topBarImg" src="./assets/navbar/file.svg"></button>
+          <ng-template #newButtonDisabled>
+            <button mat-button title="New" type="button" class="commands" disabled><img class="topBarImg"
+                src="./assets/navbar/file.svg"></button>
+          </ng-template>
+        </li>
+        <li class="nav-item">
+          <button mat-button title="Open" type="button" class="commands" (click)="searchButtonPressed()"><img
+              class="topBarImg" src="./assets/navbar/open.svg"></button>
+        </li>
+  
+        <li class="nav-item">
+          <button mat-button title="Save" *ngIf="saveButtonEnabled; else saveButtonDisabled" type="button" class="commands"
+            (click)="saveButtonPressed()"><img class="topBarImg" src="./assets/navbar/save.svg"></button>
+          <ng-template #saveButtonDisabled>
+            <button mat-button title="Save" type="button" class="btn commands" disabled><img class="topBarImg"
+                src="./assets/navbar/save.svg"></button>
+          </ng-template>
+        </li>
+  
+        <li class="nav-item">
+          <button mat-button title="Save As" *ngIf="saveAsButtonEnabled; else saveAsButtonDisabled" type="button"
+            class="commands" (click)="saveAsButtonPressed()"><img class="topBarImg"
+              src="./assets/navbar/save_as.svg"></button>
+          <ng-template #saveAsButtonDisabled>
+            <fieldset disabled>
+              <button mat-button title="Save As" type="button" class="commands" disabled><img class="topBarImg"
+                  src="./assets/navbar/save_as.svg"></button>
+            </fieldset>
+          </ng-template>
+        </li>
+  
+        <li class="nav-item">
+          <button mat-button class="commands" title="Empty question" (click)="addQuestionButtonPressed()"><img
+              class="topBarImg" src="./assets/navbar/plus.svg"></button>
+        </li>
+  
+        <li class="nav-item">
+          <button mat-button title="Questions" type="button" class="commands" *ngIf="currentConversationStatus != 'saved' && currentConversationStatus != ''" (click)="printButtonPressed()">
+            <img class="topBarImg" src="./assets/navbar/list.svg">
+          </button>
+        </li>
+  
+        <li class="nav-item">
+          <button mat-button title="Questions" type="button" class="commands" *ngIf="currentConversationStatus == 'saved' || currentConversationStatus == ''" (click)="oldPrintButtonPressed()">
+            <img class="topBarImg" src="./assets/navbar/list.svg">
+          </button>
+        </li>
+
+        <li class="nav-item">
+          <button mat-button *ngIf="previewButtonEnabled; else previewButtonDisabled" type="button" title="Preview" class=""
+            (click)="previewButtonPressed()"><img class="topBarImg" src="./assets/navbar/preview.svg"></button>
+          <ng-template #previewButtonDisabled>
+            <button mat-button type="button" title="Preview" class="" disabled><img class="topBarImg"
+                src="./assets/navbar/preview.svg"></button>
+          </ng-template>
+        </li>
+  
+        <li class="nav-item hideOnMobile">
+          <button mat-button title="Toggle Map" type="button" class="commands" (click)="toggleMapButtonPressed()">
+            <img class="topBarImg" src="./assets/navbar/map.svg">
+          </button>
+        </li>
+  
+        <li class="nav-item">
+          <button mat-button title="Check for mistakes" type="button" class="commands"
+            (click)="manualCheckButtonPressed()">
+            <img class="topBarImg" src="./assets/navbar/check.svg">
+          </button>
+        </li>
+  
+        <li class="nav-item hideOnMobile">
+          <button mat-button title="Help" type="button" class="commands" (click)="helpButtonPressed('btn')">
+            <img class="topBarImg" src="./assets/navbar/information.svg">
+          </button>
+        </li>
+        
+  
+        <li *ngIf="conversationTags.length != 0;" id="drbtn" class="nav-item" class="hideOnMobile">
+          <div class="row m-0" id="selectedFilterTag">
+            <button mat-button title="Tag" id="noTagBtn" type="button" class="col-12 commands mb-0">
+              <img class="topBarImg" src="./assets/navbar/tag.svg">
+            </button>
+           
+          </div>
+          <ul id="dropdown">
+            <li id="lidr" *ngFor="let tag of conversationTags">
+              <button mat-button class="text-left" (click)="highlightTags(tag)">{{tag}}</button>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item" *ngIf="!enterprise && currentConversationStatus=='published'">
+          <button mat-raised-button color="primary" title="Generic Link" type="button" class="commands mt-2" (click)="generateGenericLink(undefined)" [disabled]="currentConversationId == ''"
+          style="padding: 0px 0px!important; min-width: 32px!important;">
+            <img class="topBarImg" src="./assets/navbar/link.svg">
+          </button>
+        </li>
+
+        <li class="nav-item" *ngIf="!enterprise && (currentConversationStatus =='published' || currentConversationStatus =='unpublished')">
+          <button mat-raised-button color="primary" title="Survey results" type="button" class="commands mt-2" (click)="openInspect()" [disabled]="currentConversationId == ''"
+          style="padding: 0px 0px!important; min-width: 32px!important;">
+            <img class="topBarImg" src="./assets/navbar/inspect_pie.svg">
+          </button>
+        </li>
+  
+      </ul> 
+    </div>
+
+    <div id="bottom-status" class="hideOnMobile">
+      <div class="statusCircle" *ngIf="currentConversationStatus == 'published'"
+      style="background-color: #4caf50"></div>
+    <div class="statusCircle" *ngIf="currentConversationStatus == 'saved'"
+      style="background-color: #6c757d"></div>
+    <div class="statusCircle" *ngIf="currentConversationStatus == 'unpublished'"
+      style="background-color: #03a9f4"></div>
+      <div class="statusCircle" *ngIf="currentConversationStatus == ''"
+      style="background-color: #2c2c2c28"></div>
+
+      <h6 class="ml-2 p-1" style="text-transform: lowercase; color: gray; font-weight: 400; font-size: 20px;">{{currentConversationStatus}}</h6>
+    </div>
+    
+  </div>
+
+  <!-- RETE EDITOR -->
+  <app-rete (click)="helpButtonPressed('close')" class="rete" (changedPosition)="reteChangedPosition($event)"
+    [sourceJson]="editorJson" (conversationTags)="reteChangedConversationTags($event)"
+    (editedJson)="reteEditedJson($event)" (reteObject)="reteMessage($event)"></app-rete>
+
+
+  <!--HELP-->
+  <div *ngIf="showHelp" id="guide">
+    <button mat-button id="guideCloseBtn" (click)="helpButtonPressed('close')">&times;</button>
+    <p><kbd>Ctrl</kbd><kbd>Space</kbd> -Quick new node</p>
+    <p><kbd>Ctrl</kbd><kbd>E</kbd> - Create template</p>
+    <p><kbd>Ctrl</kbd><kbd>Q</kbd> - Add Template nodes</p>
+    <p><kbd>Ctrl</kbd><kbd>S</kbd> - Save</p>
+    <p><kbd>Ctrl</kbd><kbd>P</kbd> - Preview</p>
+    <p><kbd>Ctrl</kbd><kbd>O</kbd> - Open</p>
+    <p><kbd>Ctrl</kbd><kbd>M</kbd> - New Conversation</p>
+    <p><kbd>Ctrl</kbd><kbd>L</kbd> - Connect nodes (2)</p>
+    <p><kbd>Ctrl</kbd> <kbd>&#8592;</kbd><kbd>&#8593;</kbd><kbd>&#8594;</kbd><kbd>&#8595;</kbd> - Move Nodes</p>
+  </div>
+
+</div>

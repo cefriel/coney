@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <h4 class="p-1 text-center" style="width: 100%">tag your question</h4>
+  <div id="tags" class="row m-1  justify-content-center">
+    <div class="row ml-0 mr-0 mb-2" style="position:relative">
+      <mat-form-field style="width: 100%;">
+        <input matInput id="tagsInput" class="text-center" type="text" [(ngModel)]="currentTag"
+        (input)="filterTags($event.target.value)" placeholder="Search or create new" />
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" style="position: absolute; right: 0px;"
+        (click)="addTag(undefined)">+ new</button>
+    </div>
+    <br>
+    <p class="col-12 text-center gray-italic"><small>new tags will be
+        displayed after saving the conversation</small></p>
+  </div>
+  <div id="tagsDiv" class="row m-2 mb-4 justify-content-center" style="max-height: 40vh;overflow: auto; padding-top: 10px; padding-bottom: 10px;">
+    <p class="text-center gray-italic" *ngIf="!tagsFound; else showTags">No tags found in the database, write one to add
+      it</p>
+    <ng-template #showTags>
+      <p *ngIf="loadingInProgress">Looking in database, press + to skip and add this tag</p>
+
+      <div *ngFor="let tag of tags">
+        <button mat-raised-button type="button" (click)="addTag(tag.text)" class="tagListBtn">{{tag.text}}</button>
+      </div>
+
+    </ng-template>
+  </div>
+
+  <div class="row m-1 align-items-center" style="max-height: 200px;">
+    <p class="m-0 text-left col-7 gray-italic text-center" *ngIf="!tagsAdded; else showAddedTags">No tag added yet</p>
+    <button mat-button *ngIf="!tagsAdded" class="col-5" (click)="tagsSelected($event)">Close</button>
+    <ng-template #showAddedTags>
+      <div class="col-7">
+        <button mat-raised-button color="accent" type="button" (click)="deleteOne($event)" id="aboutToBeAddedTag" >{{tagToAdd}}</button>
+      </div>
+      <div class="col-5 text-center">
+        <button mat-raised-button color="primary" class="" (click)="tagsSelected($event)"
+          style="width: 100%;">Insert</button>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

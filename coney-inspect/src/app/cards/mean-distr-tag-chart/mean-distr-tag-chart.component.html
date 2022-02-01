@@ -1,0 +1,11 @@
+<div class="card text-center justify-content-center p-3" style="width: 100%">
+    <div class="row mb-3">
+        <div class="col-8 text-left pl-3">
+            <h5 *ngIf="chosenTag != ''">Mean (value) distribution per user and tag: <span style="font-weight: bold">{{chosenTag}}</span></h5>
+            <h5 *ngIf="chosenTag == ''">Mean (value) distribution per user</h5>
+            <p *ngIf="differentScaleUsed" style="color: orangered">Different scales used within this set, chart might not be accurate</p>
+        </div>
+    </div>
+    <div *ngIf="noNumericalData"><p>No numerical data found for this tag</p></div>
+    <div #meanDistrChart id="meanDistrChart" (window:resize)="onResize()"></div>
+</div>

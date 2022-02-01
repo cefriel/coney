@@ -1,0 +1,19 @@
+#answer-comp{
+    margin: 0px;
+}
+.answerOp{
+    color: #50505b;
+    border-radius: 4px;
+    font-weight: 500;
+    border: 1px solid #b2b8c7;
+    margin: 0px;
+}
+
+.answerOp:hover{
+    background: rgba(245, 245, 245, 0.781);
+}
+
+#btnDiv{
+    flex-flow: column;
+    display:flex;
+}
