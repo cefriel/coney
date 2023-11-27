@@ -10,7 +10,7 @@ Coney is an innovative toolkit designed to enhance the user experience in survey
 
 Coney's underlying data model is based on the [survey ontology](https://w3id.org/survey-ontology) that we designed to represent, annotate, export and share both the questionnaire structure and the gathered responses. Furthermore, questions and answers can be semantically annotated at design time to easily elaborate and inter-link the collected data at analysis time. 
 
-You can try Coney at [bit.ly/try-coney](https://bit.ly/try-coney)!
+You can know more about Coney and try it at [coney.cefriel.com/](https://coney.cefriel.com/)!
 
 ### Clone the repository
 
