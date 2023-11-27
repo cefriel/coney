@@ -99,9 +99,8 @@ The Coney Enterprise Edition is mainly based on the open source components, but 
 - Centralized console to access Coney components and browse projects and surveys
 - Link personalization for survey delivery (users, metadata, limit to number completions)
 - Chat interface personalization (colors, logo, etc.)
-	
-
-If you are interested, if you simply want to know more, and/or if you need help in the survey design process contact us visiting [coney.cefriel.com](https://coney.cefriel.com).
+ 
+If you are interested, if you simply want to know more, and/or if you need help in the survey design process contact us at [coney-dev@cefriel.com](mailto:coney-dev@cefriel.com).
 
 ### Coney In-Use
 
