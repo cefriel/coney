@@ -1,5 +1,7 @@
 # Coney - Community Edition
 
+⚠️ The Community Edition of Coney is NO LONGER BEING DEVELOPED but we do our best to provide bug fixing/support when possible. You can find more information on the commercial version at [coney.cefriel.com](https://coney.cefriel.com/) or below in this README.
+
 Coney is a complete toolkit developed by [Cefriel](https://www.cefriel.com/) for CONversational survEYs offering components to design and administer surveys, and to analyse data.
 
 <p align="left"><img src="/coney-community.png" alt="Coney components" width="600"></p>
@@ -94,7 +96,7 @@ More information on the components and how to use them are available in the repo
 
 ### Coney Enterprise Edition
 
-The Coney Enterprise Edition is mainly based on the open source components, but offers additional features:
+The Coney Enterprise Edition is mainly based on the open-source components, but offers additional features:
 - Multi-user and multi-project features to support hierarchies and access levels for surveys
 - Centralized console to access Coney components and browse projects and surveys
 - Link personalization for survey delivery (users, metadata, limit to number completions)
